@@ -1,27 +1,25 @@
 function Square(side) {
-    var sideLength = side;
+    this._side = side;
     this.getSide = function () {
-        return sideLength;
+        return this._side;
     }
     this.perimeter = function () {
-        return sideLength * 4
+        return this._side * 4
     }
+
 }
 function CubeOne(side) {
     Square.call(this, side);
-    var parentPerimeter = this.perimeter.bind(Square);
     this.perimeter = function () {
-        console.log("Perimetr CubeOne:" + "  " + side * 12);
+        console.log("Perimetr CubeOne:" + "  " + this._side * 12);
     }
 }
 function CubeTwo(side) {
     Square.call(this, side);
-    var parentPerimeter = this.perimeter.bind(Square);
+    var parentPerimeter = this.perimeter;
     this.perimeter = function () {
-        var sidePer = parentPerimeter();
-        console.log("Perimetr CubeTwo:" + "  " + (side * 8 + sidePer));
-
-
+        var sidePer = parentPerimeter.call(this);
+        console.log("Perimetr CubeTwo:" + "  " + (this._side * 8 + sidePer));
     }
 }
 function main() {

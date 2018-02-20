@@ -22,7 +22,13 @@ function Shape(centerX, centerY) {
 
 function Rectangle(x, y, diagonal) {
     Shape.call(this, x, y);
-    this.diagLength = diagonal;
+    var diagonalLength = diagonal;
+    this.getDiagonal = function () {
+        return diagonalLength;
+    }
+    this.setDiagonal = function (diagonal) {
+        diagonalLength = diagonal;
+    }
     var parentInfo = this.info.bind(Shape);
     this.info = function () {
         parentInfo();
@@ -33,7 +39,13 @@ function Rectangle(x, y, diagonal) {
 
 function Circle(x, y, radius) {
     Shape.call(this, x, y);
-    this.radius = radius;
+    var radiusLength = radius;
+    this.getRadius = function () {
+        return radius;
+    }
+    this.setRadius = function (radius) {
+        radiusLength = radius;
+    }
     var parentInfo = this.info.bind(Shape);
     this.info = function () {
         parentInfo();

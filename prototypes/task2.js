@@ -18,7 +18,7 @@ CubeOne.prototype = Object.create(Square.prototype);
 CubeOne.prototype.constructor = CubeOne;
 
 CubeOne.prototype.perimeter = function () {
-    console.log("Perimetr CubeOne:" + "  " + this._side * 12);
+    console.log("Perimetr CubeOne:" + "  " + this.getSide() * 12);
 };
 
 function CubeTwo(side) {
@@ -29,7 +29,7 @@ CubeTwo.prototype = Object.create(Square.prototype);
 CubeTwo.prototype.constructor = CubeTwo;
 CubeTwo.prototype.perimeter = function () {
     var parentPerimeter = Square.prototype.perimeter.call(this);
-    console.log("Perimetr CubeTwo:" + "  " + (this._side * 8 + parentPerimeter));
+    console.log("Perimetr CubeTwo:" + "  " + (this.getSide() * 8 + parentPerimeter));
 };
 
 function main() {

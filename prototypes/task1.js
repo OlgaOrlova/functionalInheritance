@@ -1,6 +1,6 @@
-function Shape(centerX, centerY) {
-    this._x = centerX;
-    this._y = centerY;
+function Shape(x, y) {
+    this._x = x;
+    this._y = y;
 }
 Shape.prototype.info = function () {
     console.log("x:" + this._x + "   " + "y:" + this._y);
@@ -18,7 +18,7 @@ function Rectangle(x, y, diagonal) {
 Rectangle.prototype = Object.create(Shape.prototype);
 Rectangle.prototype.constructor = Rectangle;
 Rectangle.prototype.info = function () {
-    console.log("x:" + this._x + "   " + "y:" + this._y + "  " + "diagonal:"+ "  " + this._diagonal);
+    console.log("x:" + this.getX() + "   " + "y:" + this.getY() + "  " + "diagonal:"+ "  " + this._diagonal);
 };
 function Circle(x, y, radius) {
     Shape.call(this, x, y);
@@ -27,7 +27,7 @@ function Circle(x, y, radius) {
 Circle.prototype = Object.create(Shape.prototype);
 Circle.prototype.constructor = Circle;
 Circle.prototype.info = function () {
-    console.log("x:" + this._x + "   " + "y:" + this._y + "  " + "radius:"+ "  " + this._radius);
+    console.log("x:" + this.getX() + "   " + "y:" + this.getY() + "  " + "radius:"+ "  " + this._radius);
 };
 function main() {
     var rectangle = new Rectangle(1, 2, 3);
